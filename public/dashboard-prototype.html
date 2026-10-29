@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hiveday Gearbox Engineering | Engineering Dashboard</title>
+<style>
+:root{--bg:#07111f;--panel:#0d1b2b;--panel2:#102338;--line:#20374b;--text:#edf5fb;--muted:#9bb0c2;--teal:#32d6c5;--teal2:#18a99e;--amber:#f5bd61;--red:#ff7b7b;--radius:18px;--shadow:0 16px 42px #0003}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#123249 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.sidebar{background:#07101cdd;border-right:1px solid var(--line);padding:26px 17px;display:flex;flex-direction:column;gap:24px}.brand{display:flex;align-items:center;gap:12px;padding:4px 8px}.mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--teal),#187e95);display:grid;place-items:center;color:#061620;font-weight:900;font-size:19px}.brand strong{display:block;font-size:14px;line-height:1.25}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.nav-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#71879a;padding:0 12px;margin:8px 0}.nav{display:grid;gap:6px}.nav button{border:1px solid transparent;color:#a9bfce;background:transparent;padding:12px 13px;text-align:left;border-radius:12px;display:flex;align-items:center;gap:12px}.nav button.active,.nav button:hover{background:#123044;border-color:#214b5c;color:var(--text)}.nav .ico{width:20px;text-align:center;color:var(--teal)}.sidebar-note{margin-top:auto;padding:14px;border:1px solid var(--line);border-radius:14px;background:#0b1928;color:var(--muted);font-size:12px}.sidebar-note strong{color:var(--text);display:block;margin-bottom:5px}.main{min-width:0;padding:28px clamp(16px,3vw,42px) 46px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.topbar h1{font-size:clamp(25px,3vw,36px);letter-spacing:-.04em;margin:5px 0 0}.top-actions{display:flex;gap:10px;align-items:center}.status{font-size:11px;border:1px solid #735c32;background:#342916;color:#ffd58d;border-radius:999px;padding:7px 10px}.btn{border:1px solid var(--line);background:#102338;color:var(--text);padding:10px 14px;border-radius:11px;font-weight:700}.btn:hover{border-color:#3b7883}.btn.primary{background:var(--teal);color:#062027;border-color:var(--teal)}.btn.danger{color:#ffb3b3;border-color:#6c3a43;background:#291820}.btn.small{padding:7px 10px;font-size:12px}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:20px}.card{background:linear-gradient(160deg,#102237,#0b1928);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;min-width:0}.stat-label{color:var(--muted);font-size:12px}.stat-value{font-size:30px;letter-spacing:-.04em;font-weight:800;margin:7px 0 2px}.stat-foot{color:#7d98aa;font-size:11px}.stat-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--teal);margin-right:6px}.content-grid{grid-template-columns:minmax(0,1.4fr) minmax(260px,.8fr)}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.section-head h2{margin:0;font-size:17px;letter-spacing:-.02em}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.case-list{display:grid;gap:10px}.case-item{border:1px solid #20374b;border-radius:13px;padding:13px;background:#0a1725;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.case-item h3{font-size:14px;margin:0 0 4px}.case-item p{font-size:12px;color:var(--muted);margin:0}.case-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 8px;background:#142b3c;color:#b4cad7;font-size:10px;border:1px solid #244357}.pill.open{color:#ffd58d;border-color:#735c32;background:#342916}.pill.completed{color:#8ff2d7;border-color:#1d665e;background:#10342f}.empty{padding:28px 16px;text-align:center;color:var(--muted);border:1px dashed #2c4558;border-radius:14px}.empty strong{display:block;color:var(--text);margin-bottom:5px}.quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick-actions button{padding:16px;text-align:left;border:1px solid var(--line);background:#0a1927;border-radius:13px;color:var(--text)}.quick-actions button:hover{border-color:var(--teal)}.quick-actions b{display:block;font-size:13px;margin:8px 0 3px}.quick-actions small{display:block;color:var(--muted);font-size:11px}.qa-icon{font-size:20px}.notice{border:1px solid #6b562e;background:#2a2317;color:#f4d59c;border-radius:13px;padding:13px 15px;font-size:12px;margin-top:16px}.view{display:none}.view.active{display:block}.toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}.search{min-width:200px;max-width:380px;flex:1}.field,select,textarea{width:100%;background:#071522;border:1px solid #2b4558;color:var(--text);border-radius:10px;padding:11px 12px;outline:none}.field:focus,select:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px #32d6c522}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:left;padding:13px 14px;border-bottom:1px solid #1c3143;font-size:12px}th{background:#0b1927;color:#8fa8ba;font-weight:700}td{color:#dce8f0}tr:last-child td{border-bottom:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form-field label{display:block;font-size:12px;color:#afc2cf;margin-bottom:6px}.form-field.full{grid-column:1/-1}.form-field textarea{min-height:88px;resize:vertical}.modal{position:fixed;inset:0;background:#020811c9;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}.modal.open{display:flex}.modal-box{width:min(700px,100%);max-height:90vh;overflow:auto;background:#0d1b2b;border:1px solid #2b4558;border-radius:20px;padding:22px;box-shadow:0 30px 100px #0009}.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.modal-head h2{margin:0;font-size:20px}.close{background:transparent;color:var(--muted);border:0;font-size:24px}.form-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.footer-note{color:#71899a;font-size:11px;margin-top:24px}.toast{position:fixed;right:18px;bottom:18px;z-index:40;background:#12372f;border:1px solid #28776a;color:#d9fff4;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);display:none}.toast.show{display:block}.mobile-menu{display:none}
+@media(max-width:1050px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.content-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.shell{grid-template-columns:1fr}.sidebar{display:none;position:fixed;inset:0 auto 0 0;width:270px;z-index:30;box-shadow:var(--shadow)}.sidebar.open{display:flex}.mobile-menu{display:inline-flex}.main{padding:18px 14px 32px}.topbar{align-items:flex-start}.top-actions{flex-wrap:wrap;justify-content:flex-end}.top-actions .status{display:none}.topbar h1{font-size:25px}.stats{gap:10px}.card{padding:15px}.stat-value{font-size:25px}.quick-actions{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.form-field.full{grid-column:auto}.case-item{flex-direction:column}.case-item .btn{align-self:flex-start}}
+@media(max-width:400px){.stats{grid-template-columns:1fr 1fr}.top-actions .btn{padding:8px 10px}.quick-actions{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Hiveday signature theme */ :root{--bg:#061225;--panel:#0b1b31;--panel2:#102641;--line:#263b55;--text:#f6f8fc;--muted:#aab9cc;--teal:#ffb400;--teal2:#d99200;--amber:#ffd36b;--shadow:0 16px 42px #0004}body{background:radial-gradient(ellipse at 80% 0%,#152b45 0,transparent 38%),var(--bg)}.mark{background:linear-gradient(135deg,#ffb400,#ffda73);color:#111827}.btn.primary{background:linear-gradient(135deg,#ffb400,#ffd36b);color:#17130b;border-color:#ffb400}.card{background:linear-gradient(160deg,#12243b,#0a1729)}.eyebrow,.nav .ico{color:#ffd36b}.nav button.active,.nav button:hover{background:#2c2517;border-color:#6a501c}.quick-actions button:hover{border-color:#ffb400}.field:focus,select:focus,textarea:focus{border-color:#ffb400;box-shadow:0 0 0 3px #ffb40022}.stat-dot{background:#ffb400}@media(max-width:760px){.topbar{flex-wrap:wrap}.top-actions .btn{min-height:42px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="mark">BG</div><div><strong>HIVEDAY<br>GEARBOX ENGINEERING</strong><small>ENGINEERING WORKSPACE</small></div></div>
+  <div><div class="nav-label">Workspace</div><nav class="nav" aria-label="Main navigation">
+    <button class="active" data-view="overview"><span class="ico">◈</span> Overview</button>
+    <button data-view="vehicles"><span class="ico">▣</span> Vehicles</button>
+    <button data-view="cases"><span class="ico">⚙</span> Repair cases</button>
+    <button data-view="tests"><span class="ico">⌁</span> Diagnostic tests</button>
+    <button data-view="library"><span class="ico">▤</span> Technical library</button>
+  </nav></div>
+  <div class="sidebar-note"><strong>Private workspace</strong>This preview stores demo records in this browser only. It is not connected to your live Supabase database yet.</div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div style="display:flex;gap:10px;align-items:flex-start"><button class="btn mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button><div><div class="eyebrow">Engineering operations</div><h1 id="pageTitle">Dashboard overview</h1></div></div>
+  <div class="top-actions"><span class="status">● DEMO MODE · NOT CONNECTED</span><button class="btn" id="exportBtn">Export data</button><button class="btn primary" id="newCaseBtn">+ New repair case</button></div>
+</header>
+
+<section class="view active" id="view-overview">
+  <div class="grid stats">
+    <div class="card"><div class="stat-label">Vehicles recorded</div><div class="stat-value" id="statVehicles">0</div><div class="stat-foot"><span class="stat-dot"></span>Vehicle register</div></div>
+    <div class="card"><div class="stat-label">Repair cases</div><div class="stat-value" id="statCases">0</div><div class="stat-foot">All recorded cases</div></div>
+    <div class="card"><div class="stat-label">Open cases</div><div class="stat-value" id="statOpen">0</div><div class="stat-foot">Need further attention</div></div>
+    <div class="card"><div class="stat-label">Completed repairs</div><div class="stat-value" id="statCompleted">0</div><div class="stat-foot">Marked completed</div></div>
+  </div>
+  <div class="grid content-grid">
+    <div class="card"><div class="section-head"><div><h2>Recent repair cases</h2><p>Latest cases recorded in this browser</p></div><button class="btn small" data-goto="cases">View all</button></div><div class="case-list" id="recentCases"></div></div>
+    <div class="card"><div class="section-head"><div><h2>Quick actions</h2><p>Keep your workshop records organized</p></div></div><div class="quick-actions">
+      <button data-modal="vehicle"><span class="qa-icon">▣</span><b>Add vehicle</b><small>Record a vehicle and details</small></button>
+      <button data-modal="case"><span class="qa-icon">⚙</span><b>Open repair case</b><small>Capture the complaint</small></button>
+      <button data-modal="test"><span class="qa-icon">⌁</span><b>Record diagnostic test</b><small>Save results and measurements</small></button>
+      <button data-modal="reference"><span class="qa-icon">▤</span><b>Add technical note</b><small>Build your knowledge library</small></button>
+    </div><div class="notice"><strong>Engineering discipline:</strong> keep suspected causes separate from confirmed faults. Record test conditions, units and evidence. Verify vehicle-specific specifications against reliable service information.</div></div>
+  </div>
+  <p class="footer-note">Prototype only. Records are saved in this browser's local storage and are not backed up or synced to other devices.</p>
+</section>
+
+<section class="view" id="view-vehicles">
+  <div class="card"><div class="toolbar"><div><div class="section-head" style="margin:0"><div><h2>Vehicle register</h2><p>Vehicle identities and known transmission details</p></div></div></div><input class="field search" id="vehicleSearch" placeholder="Search make, model, year or gearbox…"><button class="btn primary" data-modal="vehicle">+ Add vehicle</button></div>
+  <div class="table-wrap"><table><thead><tr><th>Vehicle</th><th>Year</th><th>Engine</th><th>Gearbox code</th><th>Cases</th><th></th></tr></thead><tbody id="vehicleRows"></tbody></table></div><div id="vehicleEmpty" class="empty" style="display:none"><strong>No vehicles recorded yet</strong>Add a vehicle to start your engineering records.</div></div>
+</section>
+
+<section class="view" id="view-cases">
+  <div class="card"><div class="toolbar"><div><div class="section-head" style="margin:0"><div><h2>Repair cases</h2><p>Complaints, DTCs, findings and repair outcomes</p></div></div></div><input class="field search" id="caseSearch" placeholder="Search case, vehicle, complaint, DTC…"><button class="btn primary" data-modal="case">+ New repair case</button></div>
+  <div class="table-wrap"><table><thead><tr><th>Case</th><th>Vehicle / transmission</th><th>Complaint</th><th>DTCs</th><th>Status</th><th></th></tr></thead><tbody id="caseRows"></tbody></table></div><div id="caseEmpty" class="empty" style="display:none"><strong>No repair cases yet</strong>Create a case and record the customer complaint before diagnosis.</div></div>
+</section>
+
+<section class="view" id="view-tests">
+  <div class="card"><div class="toolbar"><div class="section-head" style="margin:0"><div><h2>Diagnostic tests</h2><p>Record actual observations, measurements and interpretation</p></div></div><button class="btn primary" data-modal="test">+ Record test</button></div>
+  <div class="table-wrap"><table><thead><tr><th>Date</th><th>Repair case</th><th>Test</th><th>Actual result</th><th>Interpretation</th></tr></thead><tbody id="testRows"></tbody></table></div><div id="testEmpty" class="empty" style="display:none"><strong>No tests recorded yet</strong>Link each test to a repair case so the evidence stays together.</div></div>
+</section>
+
+<section class="view" id="view-library">
+  <div class="card"><div class="toolbar"><div class="section-head" style="margin:0"><div><h2>Technical library</h2><p>Engineering notes and reference metadata</p></div></div><input class="field search" id="librarySearch" placeholder="Search title, gearbox or notes…"><button class="btn primary" data-modal="reference">+ Add note</button></div>
+  <div class="table-wrap"><table><thead><tr><th>Title</th><th>Type</th><th>Vehicle / gearbox</th><th>Source</th><th>Date added</th></tr></thead><tbody id="libraryRows"></tbody></table></div><div id="libraryEmpty" class="empty" style="display:none"><strong>Library is empty</strong>Add your own notes or metadata for references you have permission to use.</div></div>
+</section>
+</main></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><div class="modal-head"><h2 id="modalTitle">Add record</h2><button class="close" id="closeModal" aria-label="Close">×</button></div><form id="recordForm"><div id="formFields" class="form-grid"></div><div class="form-actions"><button class="btn" type="button" id="cancelModal">Cancel</button><button class="btn primary" type="submit">Save record</button></div></form></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const STORAGE_KEY='bge_dashboard_demo_v1';
+const blankData=()=>({vehicles:[],cases:[],tests:[],references:[]});
+let data=loadData(), modalType=null;
+function loadData(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||blankData()}catch(e){return blankData()}}
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(data));render()}
+function id(){return 'HGE-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,5).toUpperCase()}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function date(v){if(!v)return '—';try{return new Date(v).toLocaleDateString()}catch(e){return v}}
+function vehicleLabel(v){return v?[v.year||'Year n/a',v.make,v.model].filter(Boolean).join(' '):'Vehicle not linked'}
+function caseVehicle(c){let v=data.vehicles.find(v=>v.id===c.vehicleId);return [vehicleLabel(v),c.gearbox||v?.gearbox||''].filter(Boolean).join(' · ')}
+function statusPill(s){let cl=s==='completed'||s==='closed'?'completed':'open';return `<span class="pill ${cl}">${esc((s||'open').replaceAll('_',' '))}</span>`}
+function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600)}
+function render(){
+ document.getElementById('statVehicles').textContent=data.vehicles.length;
+ document.getElementById('statCases').textContent=data.cases.length;
+ document.getElementById('statOpen').textContent=data.cases.filter(c=>!['completed','closed'].includes(c.status)).length;
+ document.getElementById('statCompleted').textContent=data.cases.filter(c=>['completed','closed'].includes(c.status)).length;
+ let recent=[...data.cases].sort((a,b)=>b.created.localeCompare(a.created)).slice(0,5);
+ document.getElementById('recentCases').innerHTML=recent.length?recent.map(c=>`<div class="case-item"><div><h3>${esc(c.number)} · ${esc(c.complaint)}</h3><p>${esc(caseVehicle(c))}</p><div class="case-meta">${statusPill(c.status)}${(c.dtcs||[]).map(d=>`<span class="pill">${esc(d)}</span>`).join('')}</div></div><button class="btn small" onclick="editCase('${c.id}')">View / edit</button></div>`).join(''):'<div class="empty"><strong>No repair cases yet</strong>Create your first case to begin building a searchable repair history.</div>';
+ let vs=data.vehicles.filter(v=>JSON.stringify(v).toLowerCase().includes((document.getElementById('vehicleSearch')?.value||'').toLowerCase()));
+ document.getElementById('vehicleRows').innerHTML=vs.map(v=>`<tr><td><strong>${esc(v.make)} ${esc(v.model)}</strong></td><td>${esc(v.year||'—')}</td><td>${esc(v.engine||'—')}</td><td>${esc(v.gearbox||'—')}</td><td>${data.cases.filter(c=>c.vehicleId===v.id).length}</td><td><button class="btn small" onclick="editVehicle('${v.id}')">Edit</button></td></tr>`).join('');
+ document.getElementById('vehicleEmpty').style.display=vs.length?'none':'block';
+ let cs=data.cases.filter(c=>JSON.stringify({...c,vehicle:caseVehicle(c)}).toLowerCase().includes((document.getElementById('caseSearch')?.value||'').toLowerCase()));
+ document.getElementById('caseRows').innerHTML=cs.map(c=>`<tr><td><strong>${esc(c.number)}</strong><br><small>${date(c.created)}</small></td><td>${esc(caseVehicle(c))}</td><td>${esc(c.complaint)}</td><td>${esc((c.dtcs||[]).join(', ')||'None recorded')}</td><td>${statusPill(c.status)}</td><td><button class="btn small" onclick="editCase('${c.id}')">Edit</button></td></tr>`).join('');
+ document.getElementById('caseEmpty').style.display=cs.length?'none':'block';
+ let ts=[...data.tests].sort((a,b)=>b.created.localeCompare(a.created));
+ document.getElementById('testRows').innerHTML=ts.map(t=>`<tr><td>${date(t.created)}</td><td>${esc(data.cases.find(c=>c.id===t.caseId)?.number||'Case missing')}</td><td>${esc(t.name)}</td><td>${esc(t.actual||'—')}</td><td>${esc(t.interpretation||'—')}</td></tr>`).join('');
+ document.getElementById('testEmpty').style.display=ts.length?'none':'block';
+ let rs=data.references.filter(r=>JSON.stringify(r).toLowerCase().includes((document.getElementById('librarySearch')?.value||'').toLowerCase()));
+ document.getElementById('libraryRows').innerHTML=rs.map(r=>`<tr><td><strong>${esc(r.title)}</strong><br>${esc(r.notes||'')}</td><td>${esc(r.type)}</td><td>${esc([r.vehicle,r.gearbox].filter(Boolean).join(' · ')||'—')}</td><td>${esc(r.source||'—')}</td><td>${date(r.created)}</td></tr>`).join('');
+ document.getElementById('libraryEmpty').style.display=rs.length?'none':'block';
+}
+const forms={
+ vehicle:{title:'Add vehicle',fields:[['make','Vehicle make','text',true],['model','Vehicle model','text',true],['year','Model year','number',false],['engine','Engine','text',false],['gearbox','Transmission / gearbox code','text',false],['vinLast6','VIN last 6 characters (optional)','text',false]]},
+ case:{title:'Open repair case',fields:[['vehicleId','Vehicle','vehicle',false],['customerLabel','Customer reference (avoid unnecessary personal data)','text',false],['number','Case number','text',false],['gearbox','Transmission model / code','text',false],['mileage','Mileage (km)','number',false],['complaint','Customer complaint','textarea',true],['conditions','Operating conditions / when fault occurs','textarea',false],['dtcs','DTC codes (comma separated)','text',false],['fluid','Fluid condition / level observations','textarea',false],['assessment','Initial assessment (suspected only)','textarea',false],['status','Status','status',true]]},
+ test:{title:'Record diagnostic test',fields:[['caseId','Repair case','case',true],['name','Test name','text',true],['conditions','Test conditions','textarea',false],['expected','Expected result / source','textarea',false],['actual','Actual result / measurements with units','textarea',true],['interpretation','Interpretation (evidence-based)','textarea',false]]},
+ reference:{title:'Add technical reference',fields:[['title','Title','text',true],['type','Reference type','referenceType',true],['vehicle','Vehicle / application','text',false],['gearbox','Transmission / gearbox code','text',false],['source','Source name / document reference','text',false],['notes','Engineering notes','textarea',false]]}
+};
+function options(type){if(type==='vehicle')return '<option value="">Not linked yet</option>'+data.vehicles.map(v=>`<option value="${v.id}">${esc(vehicleLabel(v))} — ${esc(v.gearbox||'gearbox unknown')}</option>`).join('');if(type==='case')return '<option value="">Select case</option>'+data.cases.map(c=>`<option value="${c.id}">${esc(c.number)} — ${esc(c.complaint.slice(0,55))}</option>`).join('');if(type==='status')return ['open','diagnosing','awaiting_parts','repairing','completed','closed'].map(s=>`<option value="${s}">${s.replaceAll('_',' ')}</option>`).join('');if(type==='referenceType')return ['note','manual reference','technical bulletin','wiring diagram','specification','training material','other'].map(s=>`<option>${s}</option>`).join('');return ''}
+function openModal(type,record=null){modalType=type;let def=forms[type];document.getElementById('modalTitle').textContent=record?'Edit '+def.title.toLowerCase():def.title;let html='';for(let [key,label,kind,required] of def.fields){let val=record?(record[key]??''):'';if(key==='dtcs'&&Array.isArray(val))val=val.join(', ');if(key==='mileage')val=val??'';let input=kind==='textarea'?`<textarea name="${key}" ${required?'required':''}>${esc(val)}</textarea>`:kind==='vehicle'||kind==='case'||kind==='status'||kind==='referenceType'?`<select name="${key}" ${required?'required':''}>${options(kind).replace(`value="${esc(val)}"`,`value="${esc(val)}" selected`)}</select>`:`<input class="field" name="${key}" type="${kind}" value="${esc(val)}" ${required?'required':''} ${key==='year'?'min="1950" max="2100"':''} ${key==='mileage'?'min="0"':''}>`;
+ html+=`<div class="form-field ${kind==='textarea'?'full':''}"><label>${esc(label)}${required?' *':''}</label>${input}</div>`}
+ document.getElementById('formFields').innerHTML=html;document.getElementById('recordForm').dataset.recordId=record?.id||'';document.getElementById('modal').classList.add('open');setTimeout(()=>document.querySelector('#formFields input, #formFields select, #formFields textarea')?.focus(),50)}
+function closeModal(){document.getElementById('modal').classList.remove('open');modalType=null}
+function editVehicle(id){let v=data.vehicles.find(x=>x.id===id);if(v)openModal('vehicle',v)}
+function editCase(id){let c=data.cases.find(x=>x.id===id);if(c)openModal('case',{...c,mileage:c.mileage??'',dtcs:c.dtcs||[]})}
+document.getElementById('recordForm').addEventListener('submit',e=>{e.preventDefault();let f=new FormData(e.target),obj={};for(let [k,v] of f.entries())obj[k]=String(v).trim();let existing=e.target.dataset.recordId;let now=new Date().toISOString();
+ if(modalType==='vehicle'){obj.year=obj.year?Number(obj.year):null;obj.id=existing||id();obj.created=data.vehicles.find(x=>x.id===existing)?.created||now;let ix=data.vehicles.findIndex(x=>x.id===obj.id);if(ix>=0)data.vehicles[ix]=obj;else data.vehicles.push(obj)}
+ if(modalType==='case'){obj.mileage=obj.mileage?Number(obj.mileage):null;obj.dtcs=(obj.dtcs||'').split(',').map(x=>x.trim().toUpperCase()).filter(Boolean);obj.id=existing||id();obj.number=obj.number||'HGE-'+new Date().getFullYear()+'-'+String(data.cases.length+1).padStart(4,'0');obj.created=data.cases.find(x=>x.id===existing)?.created||now;obj.status=obj.status||'open';let ix=data.cases.findIndex(x=>x.id===obj.id);if(ix>=0)data.cases[ix]={...data.cases[ix],...obj};else data.cases.push(obj)}
+ if(modalType==='test'){obj.id=id();obj.created=now;data.tests.push(obj)}
+ if(modalType==='reference'){obj.id=id();obj.created=now;data.references.push(obj)}
+ save();closeModal();toast('Record saved in this browser.')}
+);
+document.getElementById('closeModal').onclick=closeModal;document.getElementById('cancelModal').onclick=closeModal;document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+document.querySelectorAll('[data-modal]').forEach(b=>b.addEventListener('click',()=>openModal(b.dataset.modal)));
+document.getElementById('newCaseBtn').onclick=()=>openModal('case');
+document.getElementById('exportBtn').onclick=()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='bge-engineering-demo-export.json';a.click();URL.revokeObjectURL(a.href);toast('Export created. Store it securely.')};
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.goto)));
+function showView(name){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+name));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===name));let titles={overview:'Dashboard overview',vehicles:'Vehicle register',cases:'Repair cases',tests:'Diagnostic tests',library:'Technical library'};document.getElementById('pageTitle').textContent=titles[name]||'Dashboard';document.getElementById('sidebar').classList.remove('open');window.scrollTo({top:0,behavior:'smooth'})}
+document.getElementById('menuBtn').onclick=()=>document.getElementById('sidebar').classList.toggle('open');
+['vehicleSearch','caseSearch','librarySearch'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+render();
+</script>
+</body></html>
