@@ -1,0 +1,4 @@
+project_id = "hiveday-gearbox-engineering"
+
+[functions.diagnostic-assistant]
+verify_jwt = true
