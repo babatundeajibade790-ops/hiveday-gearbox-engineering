@@ -1,0 +1,11 @@
+HIVEDAY GEARBOX ENGINEERING — START HERE
+
+1) Extract this ZIP.
+2) Open public/index.html for the public website preview.
+3) Open public/workshop.html for the interactive workshop dashboard preview.
+4) Try adding a vehicle, creating a repair case, updating its status, adding a test result, and exporting records.
+5) Supabase is NOT required for this local preview.
+
+IMPORTANT: The dashboard stores preview records in this browser only. It is not a secure cloud database and the diagnostic helper is not connected to a live AI model yet.
+
+When ready for cloud deployment, read README.md and use public/workshop-cloud.html with Supabase. Never put private API keys in browser files.
